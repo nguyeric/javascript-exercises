@@ -1,13 +1,8 @@
 const removeFromArray = function(array, ...args) {
-    let arr = array;
-    let newArr = [];
-    
-    for (i = 0; i < arr.length; i++) {
-        if(!args.includes(arr[i])) newArr.push(arr[i]);
-    }
+    let set = new Set()
+    args.map(x => set.add(x))
 
-    console.log(newArr);
-    return newArr;
+    return array.filter(x => !set.has(x))
 }
 
 module.exports = removeFromArray
